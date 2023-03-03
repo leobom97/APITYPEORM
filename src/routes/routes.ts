@@ -4,9 +4,14 @@ import { SubjectController } from "../controllers/SubjectController";
 
 const routes = Router();
 
+//Subjects
+routes.get("/subjects", new SubjectController().list);
 routes.post("/subject", new SubjectController().create);
+routes.post("/room/:idRoom/subject", new RoomController().roomSubject);
+
+//Rooms
 routes.post("/room", new RoomController().create);
 routes.get("/room", new RoomController().list);
 routes.post("/room/:idRoom/create", new RoomController().createVideo);
-routes.post("/room/:idRoom/subject", new RoomController().roomSubject);
+
 export default routes;
